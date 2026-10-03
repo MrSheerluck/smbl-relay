@@ -34,6 +34,7 @@ async fn landing(cx: &Cx) -> topcoat::Result {
                         <nav aria-label="Main navigation">
                             <a href="#workspace">"Preview"</a>
                             <a href="#principles">"Features"</a>
+                            <a class="github-link" href="https://github.com/MrSheerluck/smbl-relay" target="_blank" rel="noopener noreferrer" aria-label="Relay source code on GitHub" title="View Relay on GitHub"><img src="/github-mark.svg" alt="" width="18" height="18"><span>"GitHub"</span></a>
                             <a class="nav-cta" href="#waitlist">"Join waitlist"</a>
                         </nav>
                     </header>
