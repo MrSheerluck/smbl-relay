@@ -1,0 +1,42 @@
+[package]
+name = "relay-landing"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.95"
+publish = false
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[workspace]
+members = ["client"]
+resolver = "3"
+
+[dependencies]
+# 0.7+ requires Rust 1.98; this spike uses the installed stable toolchain.
+topcoat = { version = "=0.6.2", default-features = false, features = ["view"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+url = "2"
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+worker = { version = "=0.8.7", features = ["d1"] }
+wasm-bindgen = "=0.2.129"
+futures-util = "0.3"
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+futures-executor = "0.3"
+dotenvy = "0.15"
+
+[target.'cfg(not(target_arch = "wasm32"))'.dev-dependencies]
+reqwest = { version = "0.12", default-features = false, features = ["blocking", "json"] }
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = false
+
+[profile.release]
+lto = true
+opt-level = "s"
+codegen-units = 1
+panic = "abort"
+strip = true

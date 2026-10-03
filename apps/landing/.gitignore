@@ -1,0 +1,10 @@
+/target/
+/build/
+/public/client/
+.wrangler/
+/dist/
+/node_modules/
+/.dev.vars*
+/.env*
+!/.env.example
+/worker-configuration.d.ts

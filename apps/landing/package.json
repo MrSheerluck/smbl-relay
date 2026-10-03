@@ -1,0 +1,18 @@
+{
+  "name": "relay-landing-spike",
+  "private": true,
+  "scripts": {
+    "build": "sh scripts/build.sh",
+    "dev": "wrangler dev --port 8787",
+    "check": "cargo run --locked --quiet --bin cloudflare -- workers deploy --dry-run",
+    "types": "wrangler types",
+    "db:migrate:local": "wrangler d1 migrations apply relay-waitlist --local",
+    "db:migrate:remote": "cargo run --locked --quiet --bin cloudflare -- workers d1 migrations apply DB --remote",
+    "db:migrate:pages": "wrangler d1 migrations apply relay-waitlist --local --cwd pages --persist-to .wrangler/pages-state",
+    "test:waitlist": "cargo test --locked --test waitlist -- --ignored",
+    "deploy": "cargo run --locked --quiet --bin cloudflare -- workers deploy",
+    "dev:pages": "wrangler pages dev --cwd pages --port 8788 --persist-to .wrangler/pages-state",
+    "deploy:pages": "cargo run --locked --quiet --bin cloudflare -- pages pages deploy"
+  },
+  "devDependencies": { "wrangler": "4.147.0" }
+}

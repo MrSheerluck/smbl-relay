@@ -1,0 +1,16 @@
+[package]
+name = "relay-landing-client"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+wasm-bindgen = "=0.2.129"
+wasm-bindgen-futures = "=0.4.79"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+serde-wasm-bindgen = "0.6"
+web-sys = { version = "=0.3.106", features = ["Window", "Document", "Element", "Node", "Event", "EventTarget", "KeyboardEvent", "HtmlElement", "HtmlInputElement", "HtmlTextAreaElement", "HtmlButtonElement", "HtmlFormElement", "Request", "RequestInit", "Headers", "Response", "AbortSignal"] }

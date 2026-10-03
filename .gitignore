@@ -1,0 +1,24 @@
+# Local planning documents
+/product-brief.md
+/ROADMAP.md
+
+# Local preview screenshots
+/apps/landing/preview.jpg
+/apps/landing/*-preview.jpg
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+
+# Dependencies, caches, and logs
+node_modules/
+target/
+.wrangler/
+__pycache__/
+*.py[cod]
+*.log
+
+.DS_Store
